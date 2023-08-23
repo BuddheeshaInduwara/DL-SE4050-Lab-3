@@ -1,0 +1,19 @@
+DL Lab 3 - Answers
+
+1)
+1D convolution can be used to identify the edges in an image by applying a kernel (a small matrix) that computes the difference between adjacent pixels along a direction. This difference is large when there is a rapid change of intensity, which indicates an edge. For example, oneD_filter kernel [-1, 1] calculates the difference between the left and right pixels, and produces a positive value when there is a transition from 0 to 1, and a negative value when there is a transition from 1 to 0. These values correspond to the edges in the image.
+
+3)
+i)
+Validation Error Increase with More Epochs:
+This happens because of the overfitting. Overfitting occurs when a model becomes too specialized to the training data and starts to perform poorly on new, unseen data (like the validation set). When you train a neural network for too many epochs, it can start to memorize the training data instead of generalizing patterns from it. This leads to a drop in performance on validation data because the model is becoming too fine-tuned to the training data's noise and specific examples.
+
+To prevent this from happening, we can employ various techniques:
+• Early Stopping: Monitor the validation loss during training and stop training when it starts to increase or plateau. This prevents the model from overfitting.
+• Regularization: Techniques like L2 regularization or dropout can help prevent overfitting by adding penalties to large weights or randomly dropping some neurons during training.
+• Reduce Complexity: Simplify the model architecture. Fewer layers or neurons may lead to better generalization.
+• Data Augmentation: Augmenting the training data with transformations can increase the effective size of your dataset and help the model generalize better.
+
+
+ii) 
+The mini batch SGD algorithm can converge faster than the batch GD algorithm because it updates the model parameters more frequently and uses less computation per update. The batch GD algorithm uses the entire dataset to compute the gradient and update the parameters in each iteration, which can be slow and expensive, especially for large datasets. The mini batch SGD algorithm uses a small subset of the dataset (such as 32 or 64 samples) to compute an approximate gradient and update the parameters in each iteration, which can be faster and more efficient, especially for parallel or distributed computing. The mini batch SGD algorithm can also escape from local minima better than the batch GD algorithm, because it introduces some noise and variation in the gradient estimation
